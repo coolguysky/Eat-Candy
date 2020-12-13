@@ -1730,7 +1730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxX: 7.2
   spawnInterval: 1.2
-  Candies:
+  candies:
   - {fileID: 3866756290318428698, guid: 23b48964c1633a540b8e45677c0b36f3, type: 3}
   - {fileID: 4248380164216863862, guid: 3491baa605d0eab4aaec76dd64bd4454, type: 3}
   - {fileID: 8277369305252948718, guid: 5a32e294e01139c45b3eb2f63879cb7b, type: 3}
