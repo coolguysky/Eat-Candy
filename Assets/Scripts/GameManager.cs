@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     int score = 0;
     int lives = 3;
     bool gameOver = false;
-
     public Text scoreText;
     public GameObject liveHolder;
     public GameObject gameOverPanel;
@@ -25,17 +21,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public void incrementScore()
+    public void IncrementScore()
     {
         if (!gameOver)
         {
@@ -45,8 +31,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
-
-    public void decrementLives()
+    public void DecrementLives()
     {
         if(lives > 0)
         {
@@ -61,19 +46,16 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-
     public void GameOver()
     {
         CandySpawner.instance.StopSpawningCandies();
         GameObject.Find("Player").GetComponent<PlayerController>().canMove = false;
         gameOverPanel.SetActive(true);
     }
-
     public void Restart()
     {
         SceneManager.LoadScene("Game");
     }
-
     public void BackToMenu()
     {
         SceneManager.LoadScene("Menu");

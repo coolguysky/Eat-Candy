@@ -8,19 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxPos;
     [SerializeField] float moveSpeed;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    private void Update()
     {
         if (canMove)
         {
             Move();
         }
     }
-
     private void Move()
     {
         float inputX = Input.GetAxisRaw("Horizontal");

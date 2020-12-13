@@ -1,33 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CandyScript : MonoBehaviour
 {
-    
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.CompareTag("Player"))
         {
-            GameManager.instance.incrementScore();
+            GameManager.instance.IncrementScore();
             Destroy(gameObject);
         } 
-        else if(collider.gameObject.tag == "Boundary")
+        else if(collider.gameObject.CompareTag("Boundary"))
         {
-            GameManager.instance.decrementLives();
+            GameManager.instance.DecrementLives();
             Destroy(gameObject);
         }
-
-        
     }
 }

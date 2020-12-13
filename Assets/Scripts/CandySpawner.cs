@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CandySpawner : MonoBehaviour
 {
     [SerializeField] float maxX;
     [SerializeField] float spawnInterval;
-    [SerializeField] GameObject[] Candies;
+    [SerializeField] GameObject[] candies;
     public static CandySpawner instance;
     public float level;
 
@@ -17,26 +16,18 @@ public class CandySpawner : MonoBehaviour
             instance = this;
         }
     }
-
-    void Start()
+    private void Start()
     {
         StartSpawningCandies();
     }
-
-
-    void Update()
+    private void SpawnCandy()
     {
-    }
-
-    void SpawnCandy()
-    {
-        int randCandy = Random.Range(0, Candies.Length);
+        int randCandy = Random.Range(0, candies.Length);
         float randX = Random.Range(-maxX, maxX);
         Vector3 randPos = new Vector3(randX, transform.position.y, transform.position.z);
-        Instantiate(Candies[randCandy], randPos, transform.rotation);
+        Instantiate(candies[randCandy], randPos, transform.rotation);
     }
-
-    IEnumerator SpawnCandies()
+    private IEnumerator SpawnCandies()
     {
         yield return new WaitForSeconds(.05f);
 
@@ -48,15 +39,12 @@ public class CandySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
-
     public void StartSpawningCandies()
     {
-        StartCoroutine("SpawnCandies");
+        StartCoroutine(nameof(SpawnCandies));
     }
-
     public void StopSpawningCandies()
     {
-        StopCoroutine("SpawnCandies");
+        StopCoroutine(nameof(SpawnCandies));
     }
-
 }
