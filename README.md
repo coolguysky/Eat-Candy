@@ -1,4 +1,4 @@
-# Candy-Catch
+# Eat-Candy
 
 Course via O'Reilly
 
